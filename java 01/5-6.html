@@ -16,8 +16,13 @@
     document.write((10 >= 5)+"<br>");
     document.write((10 != 5)+"<br>");
 
-    document.write((10 == 5)||(5<=2) +"<br>");
-    document.write((10 != 5)||(5<=2) +"<br>");
+    document.write((10 == 5)||(5<=2)+"<br>");
+    document.write((10 != 5)||(5>=2)+"<br>");
+
+    document.write((10 == 5)&&(5<=2)+"<br>");
+    document.write((10 != 5)&&(5>=2)+"<br>");
+
+    document.write(!((10 != 5)&&(5>=2))+"<br>");
 </script>
 </body>
 </html>
