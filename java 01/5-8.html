@@ -10,10 +10,17 @@
     조건 연산자 (조건)? 참일경우수행문장 : 거짓일경우수행문장;
     -->
     <script>
+        // var i=parseInt(prompt("수치하나입력하세요",0));
+
+        // re=(i>=0)?"POSITVE:":"NEGATIVE";
+        // alert("i값"+i+"은"+re+"입니다"); 
+
+        // 절대값 계산 (예1) 입력 : 5, 출력 : 5 (예2) 입력 : -5, 출력 : -5
+
         var i=parseInt(prompt("수치하나입력하세요",0));
 
-        re=(i>=0)?"POSITVE:":"NEGATIVE";
-        alert("i값"+i+"은"+re+"입니다");
+        re=(i>=0)?i:-i;
+        document.write(re);
     </script>
 </body>
 </html>
