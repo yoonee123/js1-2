@@ -12,13 +12,13 @@
 - 값.
 -->
 <script>
-    var a=parseInt(prompt("첫번째 수치를 입력하세요 ?"));
-    var b=parseInt(prompt("두번째 수치를 입력하세요 ?"));
+    var a=parseFloat(prompt("첫번째 수치를 입력하세요 ?"));
+    var b=parseFloat(prompt("두번째 수치를 입력하세요 ?"));
     
     document.write(a+"+"+b+"="+(a+b)+"<br>");
     document.write(a+"-"+b+"="+(a-b)+"<br>");
     document.write(a+"*"+b+"="+(a*b)+"<br>");
-    document.write(a+"/"+b+"="+(a/b)+toFixed(2)+"<br>");
+    document.write(a+"/"+b+"="+(a/b).toFixed(2)+"<br>");
     document.write(a+"%"+b+"="+(a%b)+"<br>");
 </script>
 </body>
