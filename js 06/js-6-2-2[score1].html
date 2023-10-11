@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    평균이 90점이상이면 A
+    80점 이상 90점 미만 B
+    70점 이상 80점 미만 C
+    60점 이상 70점 미만 D
+    60점 미만 F 
+-->
+<script>
+    kor=parseInt(prompt("국어 점수 입력?",0));
+    eng=parseInt(prompt("영어 점수 입력?",0));
+    mat=parseInt(prompt("수학 점수 입력", 0));
+
+    sum=kor+eng+mat;
+    avg=sum/3;
+    
+    if(avg>=90) hak="A";
+    else if(avg>=80) hak="B";
+    else if(avg>=70) hak="C";
+    else if(avg>=60) hak="D";
+    else hak="F";
+    
+    alert("sum : "+sum+"\navg="+avg+"\nhak="+hak);
+</script>
+</body>
+</html>
