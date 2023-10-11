@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    조건 연산자 (조건)? 참일경우수행문장 : 거짓일경우수행문장;
+    -->
+    <script>
+        var i=parseInt(prompt("수치하나입력하세요",0));
+
+        re=(i>=0)?"POSITVE:":"NEGATIVE";
+        alert("i값"+i+"은"+re+"입니다"); 
+
+        // 절대값 계산 (예1) 입력 : 5, 출력 : 5 (예2) 입력 : -5, 출력 : -5
+
+        var i=parseInt(prompt("수치하나입력하세요",0));
+
+        re=(i>=0)?i:-i;
+        document.write(re);
+
+        // 문자하나 입력해 대문자인지, 그외문자인지 체크하는 프로그램
+        var str=prompt("문자하나입력하세요","");
+
+        re=(str>="A"&&str<="Z")?"대문자":"그외 문자";
+        document.write(re);
+
+        // 문자하나 입력해 대문자 Y, 소문자 y 입력하면 yes 그외는 error로 출력하는 프로그램
+        var str=prompt("문자하나입력하세요","");
+
+        re=(str=="Y"||str=="y")?"yes":"error";
+        document.write(re);
+    </script>
+</body>
+</html>
