@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1+2+.... >500 
+        //(1부터 그 합을 계산해 처음으로 합이 500이 넘는 수와 합을 계산)
+    let i = 0, sum = 0;
+    while(true) // 무한 반복
+    {
+        sum += i; // sum = sum + i
+        if(sum > 500) break; // 합이 500보다 크면 반복문 벗어남
+        i++;
+    }
+    document.write(i + "까지 더하면 500을 넘음 : " + sum);
+    </script>
+</body>
+</html>
