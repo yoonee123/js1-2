@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var myArray = new Array();
+        var titleArray = new Array("이름","국어","영어","수학","합계","평균");
+        i = 0;
+        while(confirm("성적 정보를 입력할까요?"))
+        {
+            myArray[i] = new Array();
+            for(j=0; j<titleArray.length-2; j++)
+            {
+                myArray[i][j]=prompt(titleArray[j]+"입력해주세요","");
+            }
+            myArray[i][4]=parseInt(myArray[i][1])+parseInt(myArray[i][2])+parseInt(myArray[i][3]);
+            myArray[i][5]=myArray[i][4]/3;
+            
+            if(parseInt(myArray[i][5]/10) >= 9)
+            {
+                myArray[i][6] = "A";
+            }
+            else if(parseInt(myArray[i][5]/10) == 8)
+            {
+                myArray[i][6] = "B";
+            }
+            else if(parseInt(myArray[i][5]/10) == 7)
+            {
+                myArray[i][6] = "C";
+            }
+            else if(parseInt(myArray[i][5]/10) == 6)
+            {
+                myArray[i][6] = "D";
+            }
+            else
+                myArray[i][6] = "F";
+            i++
+        }
+        document.write("<table border='1' width='500'>");
+        document.write("<tr><td>이름</td><td>국어</td><td>영어</td><td>수학</td><td>합계</td><td>평균</td><td>학점</td></tr>");
+        for(i=0;i<myArray.length;i++)
+        {
+            document.write("<tr>");
+            for(j=0;j<myArray[i].length;j++)
+            {
+                document.write("<td>"+myArray[i][j]+"</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+</html>
