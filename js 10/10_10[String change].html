@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function changeMoney()
+    {
+        var f = document.myForm.beforeValue.value;
+        var tempString = "";
+        var rsString = "";
+
+        tempString = f;
+        tempString = tempString.replace(/,/g,'');
+
+        for(x = 1; x <= tempString.length; x++)
+        {
+            if(x > 1 && (x%3) == 1)
+            {
+                rsString = tempString.charAt(tempString.length - x) + "," + rsString;
+            }
+            else
+            {
+                rsString = tempString.charAt(tempString.length - x) + rsString;
+            }
+        }
+        document.myForm.afterValue.value = rsString;
+    }
+</script>
+<body>
+    <form name="myForm">
+        <input type="text" name="beforeValue"><br>
+        <input type="button" value="바꾸기" onclick="changeMoney();"><br>
+        <input type="text" name="afterValue">
+    </form>
+</body>
+</html>

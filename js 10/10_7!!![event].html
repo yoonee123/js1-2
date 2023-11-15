@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function upperCase(a)
+    {
+        var x = document.getElementById(a).value;
+        document.getElementById(a).value = x.toUpperCase();
+    }
+</script>
+<body>
+    <form>
+    Enter your name:
+    <input type="text" id="fname" onblur="upperCase(this.id)">
+    </form>
+</body>
+</html>
