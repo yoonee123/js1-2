@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script> // onchange 이벤트 핸들러 : 변화가 발생하면 발생하는 이벤트
+    function Case(a)
+    {
+        var myID = document.getElementById(a).value;
+        document.getElementById(a).value = myID.toUpperCase();
+    }
+</script>
+<body>
+    Enter your name:
+    <input type="text" id="myName" onchange="Case(this.id)">
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function numberCheckNoNumber()
+    {
+        num = event.keyCode;
+        char = String.fromCharCode(num);
+        numCheck = /\d/; // 수치면 true 문자면 false
+        // return !numCheck.test(char);
+        return numCheck.test(char);
+    }
+</script>
+<body>
+    <form>키보드를 입력해보세요!!
+        <br>
+        <input type="text" onkeydown="return numberCheckNoNumber()">
+        <br><br>
+        숫자가 입력이 안되지요?
+    </form>
+</body>
+</html>

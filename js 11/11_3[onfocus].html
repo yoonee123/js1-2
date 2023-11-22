@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script> // onfocus 커서(focus)를 얻을경우 발생하는 이벤트
+    function setColor(color)
+    {
+        document.getElementById(color).style.background="red";
+    }
+</script>
+<body>
+    오늘 저녁에 먹을 음식은?:
+    <input type="text" onfocus="setColor(this.id)" id="first">
+    <br>
+    디저트로는 무얼 먹을거죠?:
+    <input type="text" onfocus="setColor(this.id)" id="name">
+</body>
+</html>

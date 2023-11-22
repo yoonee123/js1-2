@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function bg_click(a)
+    {
+        if(a.bg.selectedindex !=0)
+        {
+            document.bgColor=a.bg.options[a.bg.selectedIndex].value
+        }
+    }
+    function fg_click(a)
+    {
+        if(a.fg.selectedindex !=0)
+        {
+            document.fgColor=a.fg.options[a.fg.selectedIndex].value
+        }
+    }
+</script>
+<body>
+<p>배경색상</p>
+    <form>
+        <select name="bg" size="5" onclick="bg_click(this.form)">
+                <option value="red">red</option>
+                <option value="yellow">yellow</option>
+                <option value="green">green</option>
+                <option value="blue">blue</option>
+        </select>
+        <br>글자색상<br>
+        <select name="fg" size="5" onclick="fg_click(this.form)">
+            <option value="red">red</option>
+            <option value="yellow">yellow</option>
+            <option value="green">green</option>
+            <option value="blue">blue</option>
+    </select>
+    </form>
+</body>
+</html>

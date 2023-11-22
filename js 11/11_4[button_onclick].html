@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //전역 변수, 지역 변수
+    var count = 0; // 전역 변수 선언(모든 코드가 끝날때까지 선언)
+
+    function button_onclick()
+    {
+        // var count = 0; 지역 변수 선언(펑션문이 닫힐때까지 선언) 
+        count++;
+        alert(count+"회 클릭하셨습니다.");
+    }
+</script>
+<body>
+    <input type="button" value="버튼" onclick="button_onclick()">
+</body>
+</html>
