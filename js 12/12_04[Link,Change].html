@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //window.location.href javascript에서 하이퍼링크 작업시 사용
+    function changeCSS()
+    {
+        var p = document.getElementById("myLink");
+        var t = document.getElementById("myText");
+
+        p.style.color = "blue"
+        p.style.fontSize = "18pt"
+
+        t.style.color = "red"
+        t.style.fontSize = "25pt"
+    }
+</script>
+<body>
+    <p id="myLink" onclick="window.location.href 
+    = 'http://www.naver.com/';">네이버 가기!!</p>
+    <h2 id="myText">안녕하세요!!</h2>
+    <form>
+        <p><input value="rec" type="button" onclick="changeCSS()"></p>
+    </form>
+</body>
+</html>

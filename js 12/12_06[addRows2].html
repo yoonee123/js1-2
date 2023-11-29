@@ -1,0 +1,44 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+<title>테이블을 동적으로 추가하는 예 2.</title>
+<script type="text/javascript">
+/*
+insertRow  : 행추가
+insertCell : 내용을 포함할 수 있는 셀 추가
+*/
+function addRows() 
+{
+	var mydoc = document;
+	var p = mydoc.getElementById("myTable");
+	
+	var txtElement = mydoc.createTextNode("배고픔을 어쩔수 없다!");
+	var txtElement2 = mydoc.createTextNode("일단 출튀하고 보자!");
+	
+	var row1 = p.insertRow(-1);  
+	
+	var cell1 = row1.insertCell(0);
+	var cell2 = row1.insertCell(1);
+	
+	cell1.appendChild(txtElement);
+	cell2.appendChild(txtElement2);	
+}
+</script>
+</head>
+<body>
+<h2 id="myText"> 테이블 한줄을 추가해 보도록 하겠습니다. !</h2>
+<form>
+<table border=1 id="myTable">
+	<tr>
+		<td>red	</td>
+		<td>yellow</td>
+	</tr>
+</table>
+<br><br>
+<input value="행추가" type="button" onclick="addRows();"></p>
+</form>
+</body>
+</html>

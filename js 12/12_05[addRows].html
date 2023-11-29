@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // createElement : 지정된 태그생성
+    // createTextNode : 지정된 태그내에 텍스트 생성
+    // appendChild : 자식으로 추가
+function addRows()
+{
+    var mydoc = document;
+    var p = mydoc.getElementById("myTable");
+    var tbodyElement = p.getElementsByTagName("tbody")[0];
+
+    var trElement = mydoc.createElement("tr");
+    var tdElement = mydoc.createElement("td");
+    var tdElement2 = mydoc.createElement("td");
+    var txtElement = mydoc.createTextNode("red");
+    var txtElement2 = mydoc.createTextNode("blue");
+
+    tdElement.appendChild(txtElement); // 자식 노드 추가
+    tdElement2.appendChild(txtElement2);
+    trElement.appendChild(tdElement);
+    trElement.appendChild(tdElement2);
+    tbodyElement.appendChild(trElement);
+    p.appendChild(tbodyElement);
+}
+</script>
+<body>
+    <h2 id="myText"> 테이블 한줄을 추가</h2>
+    <form>
+        <table border="1" id="myTable">
+            <tr>
+                <td>사과        </td>       <td>수박        </td>
+            </tr>
+        </table>
+        <p><input value="행추가" type="button" onclick="addRows();"></p>
+    </form>
+</body>
+</html>

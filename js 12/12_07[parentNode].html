@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function inst()
+    {
+        var div=document.getElementById("target");
+        var txt=prompt("새문단에 추가할 텍스트 입력","");
+
+        var oldpara=div.getElementsByTagName("p")[0];
+
+        var txtNode=document.createTextNode(txt);
+        var para=document.createElement("h1");
+        para.appendChild(txtNode);
+
+        div.insertBefore(para,oldpara);
+    }
+    function dele()
+    {
+        alert("제거 할 문단을 클릭하세요.");
+        var paras=document.getElementsByTagName("p");
+        for (var i=0; i<paras.length; i++)
+        {
+            paras[i].onclick=ddel;
+        }
+    }
+    function ddel()
+    {
+        var parent=this.parentNode;
+        parent.removeChild(this);
+    }
+</script>
+<body>
+    <div id=target>
+        <p>aaa</p>
+        <p>bbb</p>
+        <p>ccc</p>
+        <p>ddd</p>
+        <input type="button" value="추가하기" onclick="inst()">
+        <input type="button" value="삭제하기" onclick="dele()">
+    </div>
+</body>
+</html>
