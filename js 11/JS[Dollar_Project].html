@@ -12,8 +12,16 @@
         var tempString = "";
         var rsString = "";
 
-        tempString = `${(f/1293).toFixed()}`;
+        if(f < 1298)
+        {
+            alert("달러 단위만 환율이 가능합니다. (환율 : 1298원)")
+        }
+        else
+        {
+        tempString = `${(f/1298).toFixed()}`;
         tempString = tempString.replace(/,/g,'');
+
+       
         
         for(x = 1; x <= tempString.length; x++)
         {
@@ -27,6 +35,7 @@
             }
         }
         document.myForm.afterValue.value = rsString;
+        }
     }
 </script>
 <body>
