@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // setInterval과 마찬가지로 일정 시간 후 함수를 실행하지만, 반복하지않고 처음 한번만 호출
+    // setInterval() 일정 시간마다 함수를 반복적으로 호출하는 메소드. 함수를 자신이 원하는 시간마다 반복
+    // clearInterval 간단하게 말하면 setInterval과 setTimeout을 중지하는 메소드
+    span = document.getElementById("span");
+    timerID = setInterval("doRotate()", 200); // 200밀리초 주기로 doRotate() 호출
+
+    span.onclick = function (e) // 마우스 클릭 이벤트 리스너
+    { 
+        clearInterval(timerID);
+    }
+
+    function doRotate()
+    {
+        str = span.innerHTML;
+        firstChar = str.substr(0,1);
+        remains = str.substr(1, str.length-1);
+        str = remains + firstChar;
+        span.innerHTML = str;
+    }
+</script>
+<body>
+    <h3>텍스트가 자동 회전하며, 마우스로 클릭하면 중단합니다.</h3>
+<hr>
+<div><span id="span" style="background-color:yellow">
+					자동 회전하는 텍스트입니다.</span>
+</div>
+</body>
+</html>
