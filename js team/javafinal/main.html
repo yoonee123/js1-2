@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChungHak</title>
+    <link rel="stylesheet" href="css/css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("body").smoothWheel();
+        });
+
+        function addSubjectRow() {
+            var table = document.getElementById("subjectTable");
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+
+            cell1.innerHTML = '<input type="text" class="subjectInput" placeholder="과목을 입력해주세요" style="border: none;">';
+            cell2.innerHTML = '<input type="text" name="number" class="gradeInput" placeholder="성적을 입력해주세요">';
+        }
+
+        function changeFn() {
+    var subjectInputs = document.getElementsByClassName("subjectInput");
+    var gradeInputs = document.getElementsByClassName("gradeInput");
+    var sumhak = 0;
+    var isError = false;
+
+    for (var i = 0; i < gradeInputs.length; i++) {
+        var grade = parseInt(gradeInputs[i].value);
+        var subject = subjectInputs[i].value.trim();
+
+        // 한 번이라도 메시지를 띄운 경우 다음 행에 대해서는 더 이상 메시지를 띄우지 않도록 함
+        if (isError) {
+            continue;
+        }
+
+        // 과목명이 비어있는지 확인
+        if (subject === "") {
+            alert("과목을 입력해주세요.");
+            subjectInputs[i].style.borderColor = "red";
+            isError = true;
+        } else {
+            subjectInputs[i].style.borderColor = ""; // Reset border color
+        }
+
+        // 성적이 입력되지 않았을 때 메시지 표시하고 다음 행으로 진행
+        if (gradeInputs[i].value === "") {
+            alert("성적을 입력해주세요.");
+            isError = true;
+            continue;
+        }
+
+        // 성적이 0부터 100 사이의 숫자인지 확인
+        if (isNaN(grade) || grade < 0 || grade > 100) {
+            alert("성적을 0부터 100까지의 숫자로 입력해주세요.");
+            gradeInputs[i].value = "";
+            isError = true;
+        } else {
+            sumhak += grade;
+        }
+    }
+
+    if (!isError) {
+        document.getElementById('sumnum').innerText = sumhak;
+        avg(sumhak);
+    }
+}
+        function avg(e){
+            var gradeInputs = document.getElementsByClassName("gradeInput");
+            var validGradesCount = 0;
+
+            for (var i = 0; i < gradeInputs.length; i++) {
+                var grade = parseInt(gradeInputs[i].value);
+                if (!isNaN(grade)) {
+                    validGradesCount++;
+                }
+            }
+
+            if (validGradesCount > 0) {
+                document.getElementById('avgnum').innerText = e / validGradesCount;
+                scorenum(e / validGradesCount);
+            } else {
+                document.getElementById('avgnum').innerText = 0;
+                document.getElementById('scorenum').innerText = "등급을 계산할 수 없습니다";
+            }
+        }
+
+        function scorenum(num){
+            if(num >= 90 && num <= 100){
+                document.getElementById('scorenum').innerText= "A등급 입니다";
+            } else if(num >= 80 && num < 90){
+                document.getElementById('scorenum').innerText= "B등급 입니다";
+            } else if(num >= 70 && num < 80){
+                document.getElementById('scorenum').innerText= "C등급 입니다";
+            } else if(num >= 60 && num < 70){
+                document.getElementById('scorenum').innerText= "D등급 입니다";
+            } else if(num < 60){
+                document.getElementById('scorenum').innerText= "F등급 입니다";
+            }
+        }
+
+        function deleteLatestSubjectRow() {
+            var table = document.getElementById("subjectTable");
+
+            if (table.rows.length > 2) {
+                table.deleteRow(table.rows.length - 1);
+            } else {
+                alert("한 행은 최소 유지되어야 합니다.");
+            }
+        }
+        function calculateResult() {
+            changeFn();
+            document.getElementById('section').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="text_box">
+            <p>
+                ChungHak
+            </p>
+
+            <h1>
+                청학
+            </h1>
+            <h2>
+                한번에 내 학점을 보는 가장 쉬운 방법
+            </h2>
+            <br>
+           <a href="#section"><img src="image/화살표.png" width="6%" height="10%"></a>
+        </div>
+    </div>
+    <div id="section">
+        <h2>학점 입력 사이트</h2>
+        <table id="subjectTable">
+            <thead>
+                <tr>
+                    <th>과목명</th>
+                    <th>성적</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="subjectInput" placeholder="과목을 입력해주세요" style="border: none;"></td>
+                    <td><input type="text" name="number" class="gradeInput" placeholder="성적을 입력해주세요"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <button onclick="calculateResult()">결과</button>
+
+
+        <button onclick="addSubjectRow()">추가</button>
+
+        <!-- 추가된 부분: 최근 행 삭제 버튼 -->
+        <button onclick="deleteLatestSubjectRow()">삭제</button>
+        <br>
+        <br>
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td style="background: #73685d; font-weight: bold; color: #fff;">점수 합계</td>
+                        <td><h2 id="sumnum"></h2></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #73685d; font-weight: bold; color: #fff;">평균 점수</td>
+                        <td><h2 id="avgnum"></h2></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #73685d; font-weight: bold; color: #fff;">등급</td>
+                        <td><h2 id="scorenum"></h2></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

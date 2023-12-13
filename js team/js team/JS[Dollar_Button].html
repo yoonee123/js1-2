@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>환율 페이지</title>
+</head>
+<style>
+    body{
+        -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+    #section1{
+        width: 100vw;
+        height: 100vh;
+        background-image: url("money.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 13%;
+    }
+    #section1>div
+    {   
+        text-align: center;
+    }
+    .text1
+    {
+        color: white;
+        font-family: fantasy;
+        font-size: 10rem;
+        font-weight: 400;
+    }
+    .text2
+    {
+        color: white;
+        font-family: fantasy;
+        font-size: 50px;
+        margin-top: -5.5%;
+        font-weight: 100;
+    }
+    .text3
+    {
+        color: white;
+        font-family: fantasy;
+        font-size: 40px;
+        font-weight: 120px;
+        margin-top: -1%;
+        margin-bottom: 2%;
+    }
+    input[type=button]
+    {
+        width: 180px;
+        height: 50px;
+        background-color: skyblue;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        border-color: transparent;
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: fantasy;
+    }
+</style>
+<body>
+    <div id="section1">
+        <div>
+            <h1 class="text1">CM</h1>
+            <h2 class="text2">Cloud_Money [Dollar]</h2>
+            <h3 class="text3">환율이 어려운 여행 초보자들을 위한 사이트</h3>
+            <input type="button" value="환율하기" onclick="location.href='JS[Dollar_Project].html'">
+            </div>
+    </div>
+</body>
+</html>

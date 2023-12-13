@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChungHak</title>
+    <link rel="stylesheet" href="css/css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("body").smoothWheel();
+        });
+
+        function changeFn() {
+    var gradeInputs = document.getElementsByClassName("gradeInput");
+    var sumhak = 0;
+    var validGradesCount = 0;
+
+    for (var i = 0; i < gradeInputs.length; i++) {
+        var grade = gradeInputs[i].value.trim();
+
+        // 성적이 입력되지 않았을 때 메시지 표시하고 다음 행으로 진행
+        if (grade === "") {
+            alert("성적을 입력해주세요.");
+            gradeInputs[i].style.borderColor = "red";
+            return;  // 함수 종료
+        }
+
+        // 숫자 외의 문자가 입력되었는지 확인
+        if (!/^\d+$/.test(grade)) {
+            alert("숫자를 입력해주세요.");
+            gradeInputs[i].value = "";
+            gradeInputs[i].style.borderColor = "red";
+            return;  // 함수 종료
+        } else {
+            // 성적이 0부터 100까지의 유효한 범위에 속하는지 확인
+            var numericGrade = parseInt(grade);
+            if (numericGrade < 0 || numericGrade > 100) {
+                alert("0부터 100까지의 숫자로만 입력해주세요.");
+                gradeInputs[i].value = "";
+                gradeInputs[i].style.borderColor = "red";
+                return;  // 함수 종료
+            }
+
+            sumhak += numericGrade;
+            validGradesCount++;
+        }
+    }
+
+    if (validGradesCount > 0) {
+        var average = sumhak / validGradesCount;
+        document.getElementById('sumnum').innerText = sumhak;
+        document.getElementById('avgnum').innerText = average;
+        applyGrade(average);
+    } else {
+        document.getElementById('sumnum').innerText = 0;
+        document.getElementById('avgnum').innerText = 0;
+        document.getElementById('scorenum').innerText = "등급을 계산할 수 없습니다";
+    }
+}
+        function applyGrade(average) {
+            if(average >= 90 && average <= 100){
+                document.getElementById('scorenum').innerText= "A등급 입니다";
+            } else if(average >= 80 && average < 90){
+                document.getElementById('scorenum').innerText= "B등급 입니다";
+            } else if(average >= 70 && average < 80){
+                document.getElementById('scorenum').innerText= "C등급 입니다";
+            } else if(average >= 60 && average < 70){
+                document.getElementById('scorenum').innerText= "D등급 입니다";
+            } else if(average < 60){
+                document.getElementById('scorenum').innerText= "F등급 입니다";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="text_box">
+            <p>
+                ChungHak
+            </p>
+
+            <h1>
+                청학
+            </h1>
+            <h2>
+                한번에 내 학점을 보는 가장 쉬운 방법
+            </h2>
+            <br>
+           <a href="#section"><img src="image/화살표.png" width="6%" height="10%"></a>
+        </div>
+    </div>
+    <div id="section">
+        <h2>학점 입력 사이트</h2>
+        <table id="subjectTable">
+            <thead>
+                <tr>
+                    <th>과목명</th>
+                    <th>성적</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="subjectInput" value="수학" style="border: none;" readonly></td>
+                    <td><input type="text" name="number" class="gradeInput" placeholder="성적을 입력해주세요"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="subjectInput" value="국어" style="border: none;" readonly></td>
+                    <td><input type="text" name="number" class="gradeInput" placeholder="성적을 입력해주세요"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="subjectInput" value="영어" style="border: none;" readonly></td>
+                    <td><input type="text" name="number" class="gradeInput" placeholder="성적을 입력해주세요"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick="changeFn()">결과</button>
+        <br>
+        <br>
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td style="background: #73685d; font-weight: bold; color: #fff;">점수 합계</td>
+                        <td><h2 id="sumnum"></h2></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #73685d; font-weight: bold; color: #fff;">평균 점수</td>
+                        <td><h2 id="avgnum"></h2></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #73685d; font-weight: bold; color: #fff;">등급</td>
+                        <td><h2 id="scorenum"></h2></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+    <style>
+    @font-face {
+        font-family: "NotoSansKR"; 
+        src: url("NotoSansKR-Regular.ttf") format("truetype"); 
+    }
+    @font-face {
+        font-family: "PassionOne"; 
+        src: url("PassionOne-Bold.ttf") format("truetype"); 
+    }
+
+    h1 {
+        font-family: "PassionOne";
+        color: lightblue;
+    }
+
+    body {
+        font-family: "NotoSansKR";
+        background-color: #f4f4f4;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 100vh;
+    }
+
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        margin: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    label {
+        align-items: center;
+        margin-bottom: 8px;
+        color: lightblue;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+        border: 3px solid lightblue;
+        border-radius: 8px;
+    }
+
+    button {
+        background-color: lightblue;
+        color: #fff;
+        padding: 12px;
+        border: 3px solid lightblue;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        background-color: lightskyblue;
+    }
+
+    img {
+        width: 50%;
+        height: 100%;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="signupForm">
+            <h1>SIGN UP</h1>
+            <label for="username">아이디</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" name="password" required>
+            <button type="button" onclick="validateForm()">가입하기</button>
+        </form>
+    </div>
+    <img src="sig.jpg" alt="바다">
+    <script>
+    function validateForm() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    if (username === '' || password === '') {
+        alert('모든 필드를 입력하세요.');
+    } 
+    else {
+        alert('회원가입이 완료되었습니다!\n아이디 : ' + username + '\n비밀번호 : ' + password);
+    }
+    if (username !== null) {
+            window.location.href = 'Login.html';
+    }
+    }
+    </script>
+</body>
+</html>
